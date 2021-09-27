@@ -1,0 +1,19 @@
+svg {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    
+}
+.box {
+    font-size: 24pt;
+    font-weight: bold;
+    fill: rgb(92, 1, 1);
+    stroke: black
+}
+h1 {
+    text-align: right;
+    font-weight: bold;
+}
+line {
+    stroke: rgb(0, 0, 0);
+}
