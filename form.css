@@ -1,0 +1,17 @@
+.invalid{
+    color: orange;
+  }
+.empty{
+    color: red;
+  }
+  .label {
+    display: inline-block;
+    width:150px;
+    text-align: right;
+}
+.outputs {
+    padding-left: 8%;
+    display: inline-block;
+    text-align: left;
+    text-anchor: end;
+}
