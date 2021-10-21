@@ -60,6 +60,9 @@
         .attr("id", "coord")
         .text("Mouse X: , Y: ")
 
+        //Mouse move
+        icons.on("mousemove", moveMouse)
+        
         //twitter
         icons
           .append("img")
@@ -129,8 +132,6 @@
             .on("mousedown", onMouseDown)
             .on("mouseup", onMouseUp)
 
-        //Mouse move
-        icons.on("mousemove", moveMouse)
             
     </script>
 </body>
