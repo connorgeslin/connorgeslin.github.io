@@ -19,6 +19,7 @@ let arrayX = []
 let arrayY = []
 let arrayOp = []
 let answers = []
+let validArray = []
 let continueComputing = true;
 document.write("<table>");
 document.write("<tr><th>x</th><th>op</th><th>y</th><th>result</th></tr>");
@@ -73,7 +74,7 @@ while(continueComputing)
     arrayY.push(yN)
     arrayOp.push(operator)
     answers.push(answer)
-    console.log(answer)
+    // console.log(answer)
     document.write("<tr>");
     document.write(`<td>${xN}</td><td>${operator}</td><td>${yN}</td>`);
     document.write(`<td>${answer}</td>`);
@@ -84,5 +85,28 @@ while(continueComputing)
         break;
     }
 }
-document.write("</table><br>");
-    
+var grandtotal = 0
+var validResults = 0
+for(var i = 0; i < answers.length; i++){
+    if(!isNaN(answers[i])){
+        grandtotal += answers[i]
+        validResults++
+        validArray.push(answers[i])
+    }
+    else{
+        continue
+    }
+}
+var max = Math.max.apply(Math,validArray)
+var min = Math.min.apply(Math,validArray)
+var average = grandtotal/validArray.length
+// console.log(grandtotal)
+// console.log(min)
+// console.log(max)
+// console.log(average)
+
+document.write("</table>");
+document.write("<table>");
+document.write(`<tr><th>min</th><th>max</th><th>average</th><th>total</th></tr>`);
+document.write(`<td>${min}</td><td>${max}</td><td>${average}</td><td>${grandtotal}</td>`)
+

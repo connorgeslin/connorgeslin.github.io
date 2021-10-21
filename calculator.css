@@ -5,3 +5,6 @@ table, th, td {
 table {
     width: 50%
 }
+th{
+    background-color: aqua;
+}
