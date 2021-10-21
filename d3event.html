@@ -7,31 +7,131 @@
 </head>
 <body>
     <script>
+
+        //functions
         function onDoubleClick() {
-            window.open(this.dataset.url, "_blank")
+            window.open(this.dataset.url)
         }
+
+        function onMouseEnter(event){
+            let inText = d3.select("#in")
+            inText.text("In: " + event.target.name)
+            this.style.opacity = 0.5;
+
+        }
+
+        function onMouseLeave(){
+            this.style.opacity = 1;
+            let outText = d3.select("#out")
+            outText.text("Out: " + event.target.name)
+
+        }
+
+        function moveMouse(event){
+            let mousePosition = d3.select("#coord")
+            mousePosition.text("Mouse X: " + event.clientX + ", Y: " + event.clientY)
+
+        }
+
+        function onMouseDown(){
+            this.width = 200
+            this.height = 200
+        }
+
+        function onMouseUp(){
+            this.width = 100
+            this.height = 100
+        }
+    
+        //Setting up the span and divs
         let body = d3.select("body");
-        body.append("icons").attr("class", "icon__span");
-        let icons = d3.select(".icon__span");
+        body.append("icons").attr("class", "icons");
+        let icons = d3.select(".icons");
+        let nonIcondiv = d3.select("body").append("div")
+        let inDiv = nonIcondiv.append("div")
+            .attr("id", "in")
+            .text("In:")
+            nonIcondiv.append("br")
+        let outDiv = nonIcondiv.append("div")
+            .attr("id", "out")
+            .text("Out:")
+            nonIcondiv.append("br")
+        let mouseCoord = nonIcondiv.append("div")
+        .attr("id", "coord")
+        .text("Mouse X: , Y: ")
 
         //twitter
         icons
           .append("img")
           .attr("src", "images/twitter.png")
-          .attr("alt", "Twitter icon")
           .attr("width", 100)
           .attr("height", 100)
           .attr("data-url", "https://twitter.com")
+          .attr("name", "Twitter")
           .on("dblclick", onDoubleClick)
+          .on("mouseenter", onMouseEnter )
+          .on("mouseleave", onMouseLeave)
+          .on("mousedown", onMouseDown)
+          .on("mouseup", onMouseUp)
         
+        //facebook
         icons
             .append("img")
             .attr("src", "images/facebook.png")
             .attr("width", 100)
             .attr("height", 100)
             .attr("data-url", "https://facebook.com")
+            .attr("name", "Facebook")
             .on("dblclick", onDoubleClick)
+            .on("mouseenter", onMouseEnter )
+            .on("mouseleave", onMouseLeave)
+            .on("mousedown", onMouseDown)
+            .on("mouseup", onMouseUp)
+        //reddit
+        icons
+            .append("img")
+            .attr("src", "images/reddit.png")
+            .attr("width", 100)
+            .attr("height", 100)
+            .attr("data-url", "https://reddit.com")
+            .attr("name", "Reddit")
+            .on("dblclick", onDoubleClick)
+            .on("mouseenter", onMouseEnter)
+            .on("mouseleave", onMouseLeave)
+            .on("mousedown", onMouseDown)
+            .on("mouseup", onMouseUp)
+        
+        //linkedin
+        icons
+            .append("img")
+            .attr("src", "images/linkedin.png")
+            .attr("width", 100)
+            .attr("height", 100)
+            .attr("data-url", "https://linkedin.com")
+            .attr("name", "LinkedIn")
+            .on("dblclick", onDoubleClick)
+            .on("mouseenter", onMouseEnter)
+            .on("mouseleave", onMouseLeave)
+            .on("mousedown", onMouseDown)
+            .on("mouseup", onMouseUp)
 
+        //instagram
+        icons
+            .append("img")
+            .attr("src", "images/instagram.png")
+            .attr("width", 100)
+            .attr("height", 100)
+            .attr("data-url", "https://instagram.com")
+            .attr("name", "Instagram")
+            .on("dblclick", onDoubleClick)
+            .on("mouseenter", onMouseEnter)
+            .on("mouseleave", onMouseLeave)
+            .on("mousedown", onMouseDown)
+            .on("mouseup", onMouseUp)
+
+        //Mouse move
+        icons.on("mousemove", moveMouse)
+            
     </script>
 </body>
 </html>
