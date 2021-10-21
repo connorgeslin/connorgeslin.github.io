@@ -20,7 +20,8 @@ let arrayY = []
 let arrayOp = []
 let answers = []
 let continueComputing = true;
-
+document.write("<table>");
+document.write("<tr><th>x</th><th>op</th><th>y</th><th>result</th></tr>");
 while(continueComputing)
 {   
     let answer;
@@ -31,6 +32,7 @@ while(continueComputing)
         continueComputing = false;
         break;
     }
+
     let operator = prompt("operator")
     if (operator == null){
         continueComputing = false;
@@ -42,7 +44,6 @@ while(continueComputing)
         continueComputing = false;
         break;
     }
-
     
     if (!ops.includes(operator)){
         answer = "Not a valid operator";
@@ -68,13 +69,20 @@ while(continueComputing)
             answer = modOp(xN,yN)
         }   
     }
+    arrayX.push(xN)
+    arrayY.push(yN)
+    arrayOp.push(operator)
+    answers.push(answer)
+    console.log(answer)
+    document.write("<tr>");
+    document.write(`<td>${xN}</td><td>${operator}</td><td>${yN}</td>`);
+    document.write(`<td>${answer}</td>`);
+    document.write("</tr>");
+    
     if (!confirm('Continue?')) {
         continueComputing = true;
         break;
     }
-    console.log(answer)
-    if (!confirm('Continue?')) {
-        continueComputing = true;
-    }
 }
+document.write("</table><br>");
     
